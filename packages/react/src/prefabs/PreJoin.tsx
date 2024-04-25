@@ -57,6 +57,7 @@ export function usePreviewTracks(
   options: CreateLocalTracksOptions,
   onError?: (err: Error) => void,
 ) {
+  console.log('TBS', 'usePreviewTracks');
   const [tracks, setTracks] = React.useState<LocalTrack[]>();
 
   const trackLock = React.useMemo(() => new Mutex(), []);
@@ -123,9 +124,9 @@ export function usePreviewDevice<T extends LocalVideoTrack | LocalAudioTrack>(
       const track =
         kind === 'videoinput'
           ? await createLocalVideoTrack({
-              deviceId: deviceId,
-              resolution: VideoPresets.h720.resolution,
-            })
+            deviceId: deviceId,
+            resolution: VideoPresets.h720.resolution,
+          })
           : await createLocalAudioTrack({ deviceId });
 
       const newDeviceId = await track.getDeviceId();
@@ -234,6 +235,8 @@ export function PreJoin({
     ...(defaults.videoEnabled !== undefined && { videoEnabled: defaults.videoEnabled }),
     ...(defaults.username !== undefined && { username: defaults.username }),
   };
+
+  console.log('TBS', 'PreJoin', 'partialDefaults', partialDefaults);
 
   const {
     userChoices: initialUserChoices,
