@@ -5,7 +5,7 @@
   "author": "LiveKit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/livekit/components-js.git",
+    "url": "https://github.com/tbscode/livekit-components-js.git#patch-prejoin",
     "directory": "/packages/react"
   },
   "exports": {
